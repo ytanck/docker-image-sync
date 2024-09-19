@@ -1,0 +1,3 @@
+registry.cn-beijing.aliyuncs.com/yt_anck:
+  password: ${TEST_PASSWORD}
+  username: yt_anck
