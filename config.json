@@ -2,7 +2,7 @@
   "auth": {
       "registry.cn-beijing.aliyuncs.com": {
           "username": "yt_anck",
-          "password": "yangtao123"
+          "password": "DOCKERHUB_PASSWORD"
       }
   },
   "images": {

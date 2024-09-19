@@ -1,3 +1,6 @@
-registry.cn-beijing.aliyuncs.com/yt_anck:
-  password: ${TEST_PASSWORD}
+registry.cn-beijing.aliyuncs.com:
+  password: ${ALIHUB_PASSWORD}
   username: yt_anck
+docker.io:
+  username: 307330552@qq.com
+  password: ${DOCKER_PASSWORD}
