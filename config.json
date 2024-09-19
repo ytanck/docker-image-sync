@@ -1,0 +1,11 @@
+{
+  "auth": {
+      "registry.cn-beijing.aliyuncs.com": {
+          "username": "yt_anck",
+          "password": "DOCKERHUB_PASSWORD"
+      }
+  },
+  "images": {
+      "nginx": "registry.cn-beijing.aliyuncs.com/ytanck/nginx"
+  }
+}
