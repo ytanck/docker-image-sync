@@ -1,0 +1,31 @@
+name: test
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [ main ]
+  schedule:
+    - cron: '0 01 * * *'
+  
+jobs:
+  image-sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      
+    # - name: 镜像同步配置处理
+    #   run: |
+    #     sed -i 's/DOCKERHUB_PASSWORD/${{ secrets.DOCKERHUB_PASSWORD }}/g' config.json
+        
+    - name: 下载image-sync工具包
+      run: |
+        wget -q  https://github.com/AliyunContainerService/image-syncer/releases/download/v1.5.4/image-syncer-v1.5.4-linux-amd64.tar.gz
+        tar zxf image-syncer-v1.5.4-linux-amd64.tar.gz
+      
+    - name: 执行同步镜像
+      env: 
+        ALIHUB_PASSWORD: ${{ secrets.ALIHUB_PASSWORD }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+      run: |
+        ./image-syncer --proc=2 --auth=./auth.yaml --images=./images.yaml --retries=2
