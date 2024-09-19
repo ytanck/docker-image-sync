@@ -14,9 +14,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       
-    # - name: 镜像同步配置处理
-    #   run: |
-    #     sed -i 's/DOCKERHUB_PASSWORD/${{ secrets.DOCKERHUB_PASSWORD }}/g' config.json
         
     - name: 下载image-sync工具包
       run: |
@@ -26,6 +23,5 @@ jobs:
     - name: 执行同步镜像
       env: 
         ALIHUB_PASSWORD: ${{ secrets.ALIHUB_PASSWORD }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
       run: |
         ./image-syncer --proc=2 --auth=./auth.yaml --images=./images.yaml --retries=2
