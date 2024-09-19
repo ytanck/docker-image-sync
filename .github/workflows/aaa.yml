@@ -1,10 +1,15 @@
-name: image-sync
+name: manual-sync
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [ main ]
-  # schedule:
-  #   - cron: '0 01 * * *'
+    inputs:
+      source:
+        description: '镜像名:tag (Docker Hub)'     
+        required: true
+        default: 'nginx:1.13'
+      destination:
+        description: '目标源 (Registry)'
+        required: true
+        default: 'registry.cn-beijing.aliyuncs.com/yt-mirror/nginx'
   
 jobs:
   image-sync:
@@ -14,12 +19,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       
-        
+    - name: start sync
+      run: |
+        echo ${{ github.event.inputs.source }}:${{ github.event.inputs.destination }} >> images.yml;
+        cat ./images.yaml
+      
     - name: 下载image-sync工具包
       run: |
         wget -q  https://github.com/AliyunContainerService/image-syncer/releases/download/v1.5.4/image-syncer-v1.5.4-linux-amd64.tar.gz
         tar zxf image-syncer-v1.5.4-linux-amd64.tar.gz
-        cat ./images.yaml
+
       
     - name: 执行同步镜像
       env: 

@@ -1,2 +1,3 @@
-# nginx:1.13: "registry.cn-beijing.aliyuncs.com/yt-mirror/nginx:1.13"
-mysql:8.4.2: "registry.cn-beijing.aliyuncs.com/yt-mirror/mysql"
+# 最好指定镜像tag,要不然会同步所有的tag版本,耗时很长或者limit失败
+# nginx:1.13: "registry.cn-beijing.aliyuncs.com/yt-mirror/nginx"
+# mysql:8.4.2: registry.cn-beijing.aliyuncs.com/yt-mirror/mysql
