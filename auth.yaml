@@ -2,7 +2,13 @@
 registry.cn-beijing.aliyuncs.com:
   password: $ALIHUB_PASSWORD
   username: yt_anck
+registry.cn-hangzhou.aliyuncs.com:
+  username: yt_anck
+  password: ${ALIHUB_PASSWORD}
 # docker.io:
 #   username: 307330552@qq.com
 #   password: $DOCKER_PASSWORD
 #   insecure: true
+$TARGET_REGISTRY:
+  username: $TARGET_REGISTRY_USER
+  password: $TARGET_REGISTRY_PASSWORD

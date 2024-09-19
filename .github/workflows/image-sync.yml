@@ -1,19 +1,27 @@
-name: docker-image-test
+name: test
 on:
   workflow_dispatch:
-
+  # push:
+  #   branches: [ main ]
+  schedule:
+    - cron: '0 01 * * *'
+  
 jobs:
-  test_sync_job:
+  image-sync:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - uses: hhyasdf/image-sync-action@v1.1
-        with:
-          auth_file: ./auth.yaml
-          images_file: ./images.yaml
-          version: latest
-          proc: 6 # The max number of goroutines to sync images, default value is 5.
-        env:
-          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }} # For safty consideration, passing registry password by github action secrets is needed.
-          ALIHUB_PASSWORD: ${{ secrets.ALIHUB_PASSWORD }} # For safty consideration, passing registry password by github action secrets is needed.
+    - name: Checkout
+      uses: actions/checkout@v2
+      
+        
+    - name: 下载image-sync工具包
+      run: |
+        wget -q  https://github.com/AliyunContainerService/image-syncer/releases/download/v1.5.4/image-syncer-v1.5.4-linux-amd64.tar.gz
+        tar zxf image-syncer-v1.5.4-linux-amd64.tar.gz
+      
+    - name: 执行同步镜像
+      env: 
+        ALIHUB_PASSWORD: ${{ secrets.ALIHUB_PASSWORD }}
+      run: |
+        ./image-syncer --auth=./auth.yaml --images=./images.yaml --retries=2

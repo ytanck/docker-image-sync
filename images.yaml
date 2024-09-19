@@ -1,1 +1,2 @@
 nginx:1.13: "registry.cn-beijing.aliyuncs.com/yt-mirror/nginx:1.13"
+mysql: "registry.cn-beijing.aliyuncs.com/yt-mirror/mysql"
