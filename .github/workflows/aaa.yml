@@ -21,7 +21,8 @@ jobs:
       
     - name: start sync
       run: |
-        echo ${{ github.event.inputs.source }}:${{ github.event.inputs.destination }} >> images.yml;
+        echo ${{ github.event.inputs.source }}:${{ github.event.inputs.destination }}
+        echo ${{ github.event.inputs.source }}:${{ github.event.inputs.destination }} >> ./images.yml
         cat ./images.yaml
       
     - name: 下载image-sync工具包
