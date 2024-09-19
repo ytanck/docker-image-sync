@@ -6,6 +6,6 @@
       }
   },
   "images": {
-      "nginx": "registry.cn-beijing.aliyuncs.com/ytanck/nginx"
+      "nginx": "registry.cn-beijing.aliyuncs.com/yt-mirror/nginx"
   }
 }
