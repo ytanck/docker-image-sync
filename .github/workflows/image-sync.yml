@@ -24,5 +24,5 @@ jobs:
       env: 
         ALIHUB_PASSWORD: ${{ secrets.ALIHUB_PASSWORD }}
       run: |
-        cat images.yml
+        cat ./images.yml
         ./image-syncer --auth=./auth.yaml --images=./images.yaml --retries=2
