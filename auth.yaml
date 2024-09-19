@@ -1,6 +1,8 @@
 registry.cn-beijing.aliyuncs.com:
   password: ${ALIHUB_PASSWORD}
   username: yt_anck
+  insecure: true
 docker.io:
   username: 307330552@qq.com
   password: ${DOCKER_PASSWORD}
+  insecure: true
