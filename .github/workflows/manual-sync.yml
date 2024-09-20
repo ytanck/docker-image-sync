@@ -28,7 +28,7 @@ jobs:
       run: |
         echo "请使用标准镜像格式! 镜像要带tag,如nginx,请写为nginx:latest"
       
-    - name: start sync
+    - name: start sync & download tool
       if: steps.check_source.outputs.is_image_format == 'true'
       run: |
         echo ${{ github.event.inputs.source }}: ${{ github.event.inputs.destination }} > images.yaml

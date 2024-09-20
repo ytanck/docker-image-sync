@@ -5,6 +5,15 @@ registry.cn-beijing.aliyuncs.com:
 registry.cn-hangzhou.aliyuncs.com:
   username: yt_anck
   password: ${ALIHUB_PASSWORD}
+registry.cn-guangzhou.aliyuncs.com:
+  username: yt_anck
+  password: ${ALIHUB_PASSWORD}
+registry.cn-shanghai.aliyuncs.com:
+  username: yt_anck
+  password: ${ALIHUB_PASSWORD}
+registry.cn-shenzhen.aliyuncs.com:
+  username: yt_anck
+  password: ${ALIHUB_PASSWORD}
 # docker.io:
 #   username: 307330552@qq.com
 #   password: $DOCKER_PASSWORD
