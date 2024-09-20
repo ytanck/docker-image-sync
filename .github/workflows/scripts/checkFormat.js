@@ -20,4 +20,6 @@ function main() {
   const result = is_image_format(tag);
   console.log(`set-output: name=is_image_format::${result}`);
 }
-main()
+if (require.main === module) {
+  main();
+}
