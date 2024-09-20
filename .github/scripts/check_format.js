@@ -9,7 +9,6 @@ const is_image_format = (tag) => {
 };
 // 主函数
 function main() {
-  console.log('main',process.argv);
   const args = process.argv.slice(2);
   if (args.length < 1) {
       console.error('Usage: node script.js "tag text"');
@@ -20,6 +19,6 @@ function main() {
   const result = is_image_format(tag);
   console.log(`set-output: name=is_image_format::${result}`);
 }
-// if (require.main === module) {
+if (require.main === module) {
   main();
-// }
+}

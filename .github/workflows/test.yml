@@ -26,6 +26,10 @@ jobs:
       run: |
         node .github/scripts/check_format.js "${{ github.event.inputs.source }}"
 
+    - name: aaa
+      run: |
+        echo ${{steps.check_tag.outputs.is_image_format}}
+
     - name: ERR format
       if: steps.check_tag.outputs.is_image_format == 'false'
       run: |
