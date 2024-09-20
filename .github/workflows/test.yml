@@ -28,7 +28,7 @@ jobs:
 
     - name: aaa
       run: |
-        echo ${{steps.check_tag.outputs.is_image_format}}
+        echo "${{steps.check_tag.outputs.is_image_format}}"
 
     - name: ERR format
       if: steps.check_tag.outputs.is_image_format == 'false'
