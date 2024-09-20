@@ -1,7 +1,7 @@
 # 目标仓库信息
 registry.cn-beijing.aliyuncs.com:
-  password: $ALIHUB_PASSWORD
   username: yt_anck
+  password: $ALIHUB_PASSWORD
 registry.cn-hangzhou.aliyuncs.com:
   username: yt_anck
   password: ${ALIHUB_PASSWORD}
