@@ -24,7 +24,7 @@ jobs:
     - name: Check tag for image format
       id: check_tag
       run: |
-        node .github/scripts/checkFormat.js "${{ github.event.inputs.source }}"
+        node .github/scripts/check_format.js "${{ github.event.inputs.source }}"
 
     - name: ERR format
       if: steps.check_tag.outputs.is_image_format == 'false'
