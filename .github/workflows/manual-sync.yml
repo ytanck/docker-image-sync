@@ -18,19 +18,26 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+
+    - name: Check source for image format
+      id: check_source
+      run: |
+        node .github/scripts/check_format.js "${{ github.event.inputs.source }}"
+    - name: source is not image format
+      if: steps.check_source.outputs.is_image_format == 'false'
+      run: |
+        echo "请使用标准镜像格式! 镜像要带tag,如nginx,请写为nginx:latest"
       
     - name: start sync
+      if: steps.check_source.outputs.is_image_format == 'true'
       run: |
         echo ${{ github.event.inputs.source }}: ${{ github.event.inputs.destination }} > images.yaml
-        cat ./images.yaml
-      
-    - name: 下载image-sync工具包
-      run: |
         wget -q  https://github.com/AliyunContainerService/image-syncer/releases/download/v1.5.4/image-syncer-v1.5.4-linux-amd64.tar.gz
         tar zxf image-syncer-v1.5.4-linux-amd64.tar.gz
+        cat ./images.yaml
 
-      
     - name: 执行同步镜像
+      if: steps.check_source.outputs.is_image_format == 'true'
       env: 
         ALIHUB_PASSWORD: ${{ secrets.ALIHUB_PASSWORD }}
       run: |

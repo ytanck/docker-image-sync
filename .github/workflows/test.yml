@@ -31,21 +31,15 @@ jobs:
         echo "${{steps.check_tag}}"
         echo "${{steps.check_tag.outputs.is_image_format}}"
 
-    - name: ERR format
+    - name: source is not image format
       if: steps.check_tag.outputs.is_image_format == 'false'
       run: |
         echo "err==="
-    - name: OK format
+    - name: source is image format
       if: steps.check_tag.outputs.is_image_format == 'true'
       run: |
         echo "ok==="
 
-    - name: What is the event?
-      run: |
-        if [ ${{ steps.check_tag.outputs.is_image_format }} == 'true' ]; then
-          echo "This is a OK event"
-        else
-          echo "This is an ERR event"
         
     # - name: 下载image-sync工具包
     #   run: |
