@@ -28,6 +28,7 @@ jobs:
 
     - name: aaa
       run: |
+        echo "${{steps.check_tag}}"
         echo "${{steps.check_tag.outputs.is_image_format}}"
 
     - name: ERR format

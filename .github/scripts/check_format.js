@@ -17,7 +17,7 @@ function main() {
 
   const tag = args[0];
   const result = is_image_format(tag);
-  console.log(`set-output: name=is_image_format::${result}`);
+  console.log(`::set-output name=is_image_format::${result}`);
 }
 if (require.main === module) {
   main();
