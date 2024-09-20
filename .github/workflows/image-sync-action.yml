@@ -17,6 +17,5 @@ jobs:
           auth_file: ./auth.yaml
           images_file: ./images.yaml
           version: latest
-          proc: 5
         env:
           ALIHUB_PASSWORD: ${{ secrets.ALIHUB_PASSWORD }}
